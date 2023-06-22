@@ -1,0 +1,83 @@
+MONGODB_URI="mongodb+srv://JoseCanahuate:H7gSwgyWQW1GhkXe@parcial2ds9.7u3bro1.mongodb.net/"
+
+Registrar un nuevo usuario:
+
+Método: POST
+URL: http://localhost:3000/user
+Cuerpo (tipo JSON):
+json
+Copy code
+{
+  "user": "ejemplo",
+  "password": "contraseña123",
+  "name": "Ejemplo Usuario"
+}
+Esta solicitud enviará los datos de un nuevo usuario para registrar en la base de datos.
+Iniciar sesión con un usuario registrado:
+
+Método: POST
+URL: http://localhost:3000/user/login
+Cuerpo (tipo JSON):
+json
+Copy code
+{
+  "user": "ejemplo",
+  "password": "contraseña123"
+}
+Esta solicitud intentará iniciar sesión con las credenciales proporcionadas y devolverá un token de autenticación si las credenciales son válidas.
+Obtener información de un usuario específico:
+
+Método: GET
+URL: http://localhost:3000/user/{id}
+Reemplaza {id} con el ID del usuario que deseas obtener información.
+Esta solicitud obtendrá la información de un usuario específico de la base de datos.
+Actualizar información de un usuario:
+
+Método: PUT
+URL: http://localhost:3000/user/{id}
+Reemplaza {id} con el ID del usuario que deseas actualizar.
+Cuerpo (tipo JSON) con los campos que deseas actualizar:
+json
+Copy code
+{
+  "user": "nuevoUsuario",
+  "password": "nuevaContraseña",
+  "name": "Nuevo Nombre"
+}
+Esta solicitud actualizará la información del usuario especificado en la base de datos.
+Eliminar un usuario:
+
+Método: DELETE
+URL: http://localhost:3000/user/{id}
+Reemplaza {id} con el ID del usuario que deseas eliminar.
+Esta solicitud eliminará el usuario especificado de la base de datos.
+
+
+
+//API RICARDO
+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
+
+//API ORMELIS  
+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
+
+module.exports = MongoConnect;
+/* const mongoose = require("mongoose");
+
+const MongoConnect = () => {
+  // AQUÍ CREAS UNA NUEVA CONEXIÓN EN MONGO ATLAS Y COLOCAS LA URL DE CONEXIÓN
+  /* MONGODB_URI="mongodb+srv://JoseCanahuate:H7gSwgyWQW1GhkXe@parcial2ds9.7u3bro1.mongodb.net/" */
+ /*  const dbUrl = "mongodb://127.0.0.1:27017/parcial2"; */
+  const dbUrl = "mongodb+srv://JoseCanahuate:H7gSwgyWQW1GhkXe@parcial2ds9.7u3bro1.mongodb.net/";
+ 
+  mongoose.connect(dbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+/*     useCreateIndex: true */
+  })
+    .then(() => {
+      console.log("Connected to database");
+    })
+    .catch((error) => {
+      console.error("Database connection error", error);
+    });
+};
